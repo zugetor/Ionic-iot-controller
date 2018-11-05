@@ -51,3 +51,35 @@ angular.module('starter.controllers', [])
 .controller('HomeCtrl', function($scope, $state, PlantEdit, $stateParams) {
 	
 })
+
+.controller('AirCtrl', function($scope, $state, $stateParams) {
+	
+})
+
+.controller('LightCtrl', function($scope, $state,  $stateParams) {
+	
+})
+
+.controller('BellCtrl', function($scope, $state,  $stateParams) {
+	
+})
+
+.controller('CamCtrl', function($scope, $state, $stateParams) {
+	
+})
+
+.controller('GarageCtrl', function($scope, $state, $stateParams) {
+	
+})
+
+.controller('LockCtrl', function($scope, $state, $stateParams) {
+	
+})
+
+.controller('MusicCtrl', function($scope, $state, $stateParams) {
+	
+})
+
+.controller('TempCtrl', function($scope, $state, $stateParams) {
+	
+})

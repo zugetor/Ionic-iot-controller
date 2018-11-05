@@ -57,6 +57,86 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
     }
   })
 
+  .state('app.light', {
+    url: '/light',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/light.html',
+		controller: 'LightCtrl'
+      }
+    }
+  })
+
+  .state('app.air', {
+    url: '/air',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/air.html',
+		controller: 'AirCtrl'
+      }
+    }
+  })
+
+  .state('app.bell', {
+    url: '/bell',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/bell.html',
+		controller: 'BellCtrl'
+      }
+    }
+  })
+
+  .state('app.cam', {
+    url: '/cam',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/cam.html',
+		controller: 'CamCtrl'
+      }
+    }
+  })
+
+  .state('app.garage', {
+    url: '/garage',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/garage.html',
+		controller: 'GarageCtrl'
+      }
+    }
+  })
+
+  .state('app.lock', {
+    url: '/lock',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/lock.html',
+		controller: 'LockCtrl'
+      }
+    }
+  })
+
+  .state('app.music', {
+    url: '/music',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/music.html',
+		controller: 'MusicCtrl'
+      }
+    }
+  })
+
+  .state('app.temp', {
+    url: '/temp',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/temp.html',
+		controller: 'TempCtrl'
+      }
+    }
+  })
+
   .state('app.addPlant', {
       url: '/addPlant/:Id',
       views: {
