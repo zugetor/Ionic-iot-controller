@@ -1,0 +1,37 @@
+<ion-view>
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon ion-navicon" menu-toggle="left"></button>
+		</ion-nav-buttons>
+		
+		<ion-nav-buttons side="right">
+			<a class="button button-icon ion-plus" href="#/app/addPlant/-1"></a>
+		</ion-nav-buttons>
+		
+		<ion-nav-title>
+		  <i class='icon ion-leaf'></i>
+		</ion-nav-title>
+	</ion-nav-bar>
+	<ion-content>
+		<div class="list">
+			<div class="row item item-divider">
+			   <div class="col text-center"><h4>ชื่อ</h4></div>
+			   <div class="col text-center"><h4>เวลา</h4></div>
+			   <div class="col text-center"><h4>ON/OFF</h4></div>
+			</div>	
+			<a class="item" href="#/app/addPlant/{{item.index}}" ng-repeat="item in list">
+				<div class="row">
+				   <div class="col col-center text-center"><h2>{{item.text}}</h2></div>
+				   <div class="col col-center text-center"><h2>{{item.time}}</h2></div>
+				   <div class="col col-center text-center">
+						<div class="range range-positive">
+							<i class="icon ion-minus"></i>
+							<input type="range" name="volume" min="0" max="100" value="33">
+							<i class="icon ion-plus"></i>
+						</div>
+				   </div>
+				</div>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>
