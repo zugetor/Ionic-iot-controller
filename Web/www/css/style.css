@@ -1,0 +1,11 @@
+.img-auto{
+    width: 70%;
+    height: auto;
+    padding-top: 1.6em; 
+}
+a{
+	text-decoration: none;
+}
+ion-content{
+    background: #17c2a4 !important;
+}

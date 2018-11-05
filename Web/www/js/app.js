@@ -47,6 +47,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
     }
   })
 
+  .state('app.home', {
+    url: '/home',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/home.html',
+		controller: 'HomeCtrl'
+      }
+    }
+  })
+
   .state('app.addPlant', {
       url: '/addPlant/:Id',
       views: {
@@ -58,5 +68,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
     })
 	$ionicConfigProvider.backButton.text("");
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/plant');
+  $urlRouterProvider.otherwise('/app/home');
 });

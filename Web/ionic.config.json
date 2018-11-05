@@ -1,14 +1,13 @@
 {
   "name": "hci",
-  "type": "ionic1",
   "integrations": {
     "gulp": {}
   },
+  "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
     "www/**/*",
     "!www/lib/**/*",
     "!www/**/*.map"
-  ],
-  "app_id": ""
+  ]
 }
