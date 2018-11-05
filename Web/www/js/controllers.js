@@ -53,12 +53,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AirCtrl', function($scope, $state, $stateParams) {
-	
+	$scope.temperature = 25;
+	$scope.increaseTemp=function(){$scope.temperature++;};
+	$scope.decreaseTemp=function(){$scope.temperature--;};
 })
 
 .controller('LightCtrl', function($scope, $state,  $stateParams) {
-	
 })
+
 
 .controller('BellCtrl', function($scope, $state,  $stateParams) {
 	

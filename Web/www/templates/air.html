@@ -1,6 +1,34 @@
 <ion-view view-title="Air Conditioner">
     <ion-content>
-      
+        
+            <div class="row">
+                <div class="col col-10">
+            <button ng-click="decreaseTemp()">-</button>
+            </div>
+            <div class="col col-20">
+                    <label class="item item-input">
+                            <input type="text" value="{{temperature}}">
+                          </label>
+            </div>
+            <div class="col col-33">
+            <button ng-click="increaseTemp()">+</button>
+            </div>
+          </div>
+
+            <div class="list">
+
+                    <label class="item item-input item-select">
+                      <div class="input-label">
+                        Mode
+                      </div>
+                      <select>
+                            <option selected>normal</option>
+                        <option>silent</option>
+                        <option>powerful</option>
+                      </select>
+                    </label>
+                  
+                  </div>
     </ion-content>
   </ion-view>
   
