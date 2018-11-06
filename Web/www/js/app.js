@@ -146,6 +146,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
         }
       }
     })
+
+    .state('app.addLight', {
+      url: '/addLight/:Id',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/addLight.html',
+		  controller: 'LightCtrl2'
+        }
+      }
+    })
+
 	$ionicConfigProvider.backButton.text("");
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

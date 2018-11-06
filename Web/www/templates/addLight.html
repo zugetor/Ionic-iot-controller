@@ -1,0 +1,24 @@
+<ion-view>
+        <ion-nav-bar>
+            <ion-nav-back-button side="left" class="button button-icon ion-ios-arrow-back">
+            </ion-nav-back-button>
+            
+            <ion-nav-title>Add Light</ion-nav-title>
+        </ion-nav-bar>
+        <ion-content>
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Name</span>
+                    <input type="text" placeholder="room" id="name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Connect</span>
+                    <input type="text" value="F-3148" disabled>
+                </label>	
+            </div>
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="addval()">Add</button>
+            </div>
+        </ion-content>
+    </ion-view>
+    

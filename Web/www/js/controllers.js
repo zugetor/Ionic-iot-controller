@@ -74,8 +74,6 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('LightCtrl', function($scope, $state,  $stateParams) {
-})
 
 
 .controller('BellCtrl', function($scope, $state,  $stateParams) {
@@ -143,4 +141,43 @@ angular.module('starter.controllers', [])
 
 .controller('TempCtrl', function($scope, $state, $stateParams) {
 	
+})
+
+.controller('LightCtrl', function($scope, $state, $rootScope, LightEdit) {
+	$scope.list = [
+		{text:"ห้องนั่งเล่น",urlicon:"img/sofa_icon.png",index:0},
+		{text:"ห้องนอน",urlicon:"img/sleep_icon.jpg",index:1},
+		{text:"ห้องครัว",urlicon:"img/kitchen_icon.png",index:2},
+		{text:"ห้องน้ำ",urlicon:"img/bathroom_icon.png",index:3},
+		{text:"หน้าบ้าน",urlicon:"img/home_icon.png",index:4},
+		{text:"โรงรถ",urlicon:"img/garage_icon.png",index:5}];
+	$rootScope.$on('add', function() {
+		var data = LightEdit.get();
+		data["index"] = $scope.list.length;
+        $scope.list.push(data);
+    });
+})
+.controller('LightCtrl2', function($scope, $state, LightEdit, $stateParams) {
+	$scope.addval = function() {
+		var id = $stateParams.Id;
+		if(id == -1){
+			LightEdit.update();
+		}
+		$state.go('app.light');
+	};
+})
+.factory('LightEdit', function($rootScope){
+     
+     var data = {text:"ห้อง"};
+
+     return {
+        get: function(){
+			return data;
+        },
+        update : function(){
+			data = {text:document.getElementById("name").value,urlicon:"img/other_icon.png"};
+			$rootScope.$broadcast('add');
+        }
+     }
+
 })
