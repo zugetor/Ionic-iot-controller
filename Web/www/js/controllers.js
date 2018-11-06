@@ -74,8 +74,6 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('LightCtrl', function($scope, $state,  $stateParams) {
-})
 
 
 .controller('BellCtrl', function($scope, $state,  $stateParams) {
@@ -90,19 +88,48 @@ angular.module('starter.controllers', [])
 	$scope.list = [[{name:"cam1",state:"balanced"},{name:"cam2",state:"balanced"}],[{name:"cam3",state:"assertive"},{name:"cam4",state:"balanced"}]];
 })
 
-.controller('GarageCtrl', function($scope, $state, $stateParams) {
+.controller('GarageCtrl', function($scope, $state, $stateParams,$timeout) {
 	var status=0;
 	$scope.garagestatus="Garage is closed";
 	$scope.garageimg="img/storage.svg";
 	$scope.changestatus=function(){
 		if(status==0){
-			$scope.garagestatus="Garage is opened";
-			$scope.garageimg="img/garage.svg";
+			$scope.garagestatus="Garage is opening ..."
+			$timeout(function(){
+				$scope.garageimg="img/garagestatus1.png"
+				$timeout(function(){
+					$scope.garageimg="img/garagestatus2.png"
+					$timeout(function(){
+						$scope.garageimg="img/garagestatus3.png"
+						$timeout(function(){
+							$scope.garageimg="img/garagestatus4.png"
+							$timeout(function(){
+								$scope.garagestatus="Garage is opened"
+						},2000);
+						},1000);
+					},1000);
+				},1000);
+			},1000);
 			status=1;
 		}
 		else{
-			$scope.garagestatus="Garage is closed";
-			$scope.garageimg="img/storage.svg";
+			$scope.garagestatus="Garage is closing ..."
+			$timeout(function(){
+				$scope.garageimg="img/garagestatus3.png"
+				$timeout(function(){
+					$scope.garageimg="img/garagestatus2.png"
+					$timeout(function(){
+						$scope.garageimg="img/garagestatus1.png"
+						$timeout(function(){
+							$scope.garageimg="img/garagestatus0.png"
+							$timeout(function(){
+								$scope.garagestatus="Garage is closed"
+						},2000);
+						},1000);
+					},1000);
+				},1000);
+			},1000);
+			
 			status=0;
 		}
 	};
@@ -118,4 +145,43 @@ angular.module('starter.controllers', [])
 
 .controller('TempCtrl', function($scope, $state, $stateParams) {
 	
+})
+
+.controller('LightCtrl', function($scope, $state, $rootScope, LightEdit) {
+	$scope.list = [
+		{text:"ห้องนั่งเล่น",urlicon:"img/sofa_icon.png",index:0},
+		{text:"ห้องนอน",urlicon:"img/sleep_icon.jpg",index:1},
+		{text:"ห้องครัว",urlicon:"img/kitchen_icon.png",index:2},
+		{text:"ห้องน้ำ",urlicon:"img/bathroom_icon.png",index:3},
+		{text:"หน้าบ้าน",urlicon:"img/home_icon.png",index:4},
+		{text:"โรงรถ",urlicon:"img/garage_icon.png",index:5}];
+	$rootScope.$on('add', function() {
+		var data = LightEdit.get();
+		data["index"] = $scope.list.length;
+        $scope.list.push(data);
+    });
+})
+.controller('LightCtrl2', function($scope, $state, LightEdit, $stateParams) {
+	$scope.addval = function() {
+		var id = $stateParams.Id;
+		if(id == -1){
+			LightEdit.update();
+		}
+		$state.go('app.light');
+	};
+})
+.factory('LightEdit', function($rootScope){
+     
+     var data = {text:"ห้อง"};
+
+     return {
+        get: function(){
+			return data;
+        },
+        update : function(){
+			data = {text:document.getElementById("name").value,urlicon:"img/other_icon.png"};
+			$rootScope.$broadcast('add');
+        }
+     }
+
 })

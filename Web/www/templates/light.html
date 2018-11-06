@@ -1,10 +1,13 @@
 <ion-view view-title="Light Control">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon ion-plus" href="#/app/addLight/-1"></a>
+      </ion-nav-buttons>
     <ion-content>
         <ul class="list">
 
-            <li class="item item-toggle">
-                    <i class="icon"><img class="img-icon" src="img/sofa_icon.png"></i>
-               ห้องนั่งเล่น
+            <li class="item item-toggle" ng-repeat="item in list">
+                    <i class="icon"><img class="img-icon" src="{{item.urlicon}}"></i>
+               {{item.text}}
                <label class="toggle toggle-green">
                  <input type="checkbox">
                  <div class="track">
@@ -12,28 +15,8 @@
                  </div>
                </label>
             </li>
-          
-            <li class="item item-toggle">
-                    <i class="icon"><img class="img-icon" src="img/sleep_icon.jpg"></i>
-                ห้องนอน
-                <label class="toggle toggle-green">
-                  <input type="checkbox">
-                  <div class="track">
-                    <div class="handle"></div>
-                  </div>
-                </label>
-             </li>
-          
-             <li class="item item-toggle">
-                    <i class="icon ion-home"></i>
-                หน้าบ้าน
-                <label class="toggle toggle-green">
-                  <input type="checkbox">
-                  <div class="track">
-                    <div class="handle"></div>
-                  </div>
-                </label>
-             </li>
+          <!--
+            
           
              <li class="item item-toggle">
                     <i class="icon"><img class="img-icon" src="img/bathroom_icon.png"></i>
@@ -67,7 +50,7 @@
                   </div>
                 </label>
              </li>
-          
+            -->
           </ul>
     </ion-content>
   </ion-view>
