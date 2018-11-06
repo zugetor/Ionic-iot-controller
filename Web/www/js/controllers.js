@@ -54,8 +54,24 @@ angular.module('starter.controllers', [])
 
 .controller('AirCtrl', function($scope, $state, $stateParams) {
 	$scope.temperature = 25;
-	$scope.increaseTemp=function(){$scope.temperature++;};
-	$scope.decreaseTemp=function(){$scope.temperature--;};
+	$scope.tempColor = "balanced";	
+	$scope.changeColor=function(){
+		if($scope.temperature > 50){
+			$scope.tempColor = "assertive";
+		}else{
+			if($scope.temperature > 40 && $scope.temperature <= 50){
+				$scope.tempColor = "energized";
+			}else{
+				if($scope.temperature > 20 && $scope.temperature <= 40){
+					$scope.tempColor = "balanced";
+				}else{
+					$scope.tempColor = "positive";
+				}
+			}
+		}
+	};
+	$scope.increaseTemp=function(){$scope.temperature++;$scope.changeColor();};
+	$scope.decreaseTemp=function(){$scope.temperature--;$scope.changeColor();};
 	$scope.powerstatus=0;
 	$scope.airpower="assertive";
 	$scope.airmode="normal";
