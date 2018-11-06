@@ -60,6 +60,8 @@ angular.module('starter.controllers', [])
 	$scope.airpower="assertive";
 	$scope.airmode="normal";
 	$scope.fanlevel="1";
+	$scope.starttime="-";
+	$scope.stoptime="-";
 	$scope.changepower=function(){
 		if($scope.powerstatus==0){
 			$scope.airpower="balanced";
@@ -85,7 +87,21 @@ angular.module('starter.controllers', [])
 })
 
 .controller('GarageCtrl', function($scope, $state, $stateParams) {
-	
+	var status=0;
+	$scope.garagestatus="Garage is closed";
+	$scope.garageimg="img/storage.svg";
+	$scope.changestatus=function(){
+		if(status==0){
+			$scope.garagestatus="Garage is opened";
+			$scope.garageimg="img/garage.svg";
+			status=1;
+		}
+		else{
+			$scope.garagestatus="Garage is closed";
+			$scope.garageimg="img/storage.svg";
+			status=0;
+		}
+	};
 })
 
 .controller('LockCtrl', function($scope, $state, $stateParams) {

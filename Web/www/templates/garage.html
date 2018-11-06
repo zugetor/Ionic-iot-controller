@@ -1,6 +1,13 @@
 <ion-view view-title="Garage Door">
     <ion-content>
-      
+        <h1 class="text-center">{{garagestatus}}</h1>
+      <div class="row">
+            <a ng-click="changestatus()">
+        <div class="col col-100 text-center">
+        <img class="garage-pic" src="{{garageimg}}">  
+        </div>
+        </a>
+      </div>
     </ion-content>
   </ion-view>
   

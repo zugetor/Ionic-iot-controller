@@ -15,7 +15,7 @@
                        <u> mode : </u> &nbsp;&nbsp;{{airmode}}
                     </div>
                     <div class="row">
-                        <u>start time :</u>
+                        <u>start time :</u>{{starttime}}
                     </div>
                     <div class="row">
                         <u>stop time :</u>
@@ -86,7 +86,7 @@
   
                       <div class="list">
                 
-                        <div class="item item-input" ion-datetime-picker time ng-model="timeValue">                
+                        <div class="item item-input" ion-datetime-picker time ng-model="starttime">                
                                   <span class="input-label">Time</span>
                           <div class="input-label" id="time">{{timeValue| date: 'H:mm'}}</div>
                               </div>		
