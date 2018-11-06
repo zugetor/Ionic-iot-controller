@@ -15,6 +15,14 @@ a{
 body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
     font-family: 'Kanit', sans-serif;}
     
-    input { 
+    .input-center { 
         text-align: center; 
     }
+
+.borderitem{
+    border-style: solid;
+    text-align: center;
+    background:lightgrey;
+}
+.fanlevel{width: 16%;
+    height: 16%;}

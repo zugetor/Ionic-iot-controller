@@ -56,6 +56,20 @@ angular.module('starter.controllers', [])
 	$scope.temperature = 25;
 	$scope.increaseTemp=function(){$scope.temperature++;};
 	$scope.decreaseTemp=function(){$scope.temperature--;};
+	$scope.powerstatus=0;
+	$scope.airpower="assertive";
+	$scope.airmode="normal";
+	$scope.fanlevel="1";
+	$scope.changepower=function(){
+		if($scope.powerstatus==0){
+			$scope.airpower="balanced";
+			$scope.powerstatus=1;
+		}
+		else if($scope.powerstatus==1){
+			$scope.airpower="assertive";
+			$scope.powerstatus=0;
+		}
+	};
 })
 
 .controller('LightCtrl', function($scope, $state,  $stateParams) {

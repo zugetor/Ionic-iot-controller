@@ -1,9 +1,46 @@
 <ion-view view-title="Air Conditioner">
     <ion-content>
-        
+        <div class="list card">
+
+            
+          
+            <div class="item item-body">
+              <div class="row">
+                <div class="col col-66">
+                    <div class="row">
+                        <u>fan level :</u>&nbsp; <img class="fanlevel" src=img/fan{{fanlevel}}.png>
+                    </div>  
+                    
+                  <div class="row">
+                       <u> mode : </u> &nbsp;&nbsp;{{airmode}}
+                    </div>
+                    <div class="row">
+                        <u>start time :</u>
+                    </div>
+                    <div class="row">
+                        <u>stop time :</u>
+                    </div>
+                  
+                </div>
+                <div class="col col-33 borderitem"> 
+                   <h1>{{temperature}}</h1> Celcius 
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <center>
+            <button class="button button-{{airpower}}" ng-click="changepower()"><i class="icon ion-power"></i></button>
+            </center>
+
             <div class="row">
+
+              
                 <div class="col col-20">
-            <button ng-click="decreaseTemp()" class="button button-calm">-</button>
+            <button ng-click="decreaseTemp()" class="button button-calm"><i class="icon ion-minus"></i></button>
             </div>
             <div class="col col-60">
                     <label class="item item-input">
@@ -12,7 +49,7 @@
             </div>
             &nbsp;&nbsp;
             <div class="col col-20">
-            <button ng-click="increaseTemp()" class="button button-calm">+</button>
+            <button ng-click="increaseTemp()" class="button button-calm"><i class="icon ion-plus"></i></button>
             </div>
           </div>
 
@@ -22,14 +59,40 @@
                       <div class="input-label">
                         Mode
                       </div>
-                      <select>
-                            <option selected>normal</option>
-                        <option>silent</option>
-                        <option>powerful</option>
+                      <select ng-model="airmode">
+                            <option value="normal">normal</option>
+                        <option value="silent">silent</option>
+                        <option value="powerful">powerful</option>
                       </select>
                     </label>
                   
                   </div>
+                  <div class="list">
+
+                    <label class="item item-input item-select">
+                      <div class="input-label">
+                        Fan level
+                      </div>
+                      <select ng-model="fanlevel">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </label>
+                  
+                  </div>
+
+  
+                      <div class="list">
+                
+                        <div class="item item-input" ion-datetime-picker time ng-model="timeValue">                
+                                  <span class="input-label">Time</span>
+                          <div class="input-label" id="time">{{timeValue| date: 'H:mm'}}</div>
+                              </div>		
+                      </div>
+            
+                    
     </ion-content>
   </ion-view>
   
