@@ -136,6 +136,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
       }
     }
   })
+  
+  .state('app.viewcam', {
+    url: '/viewcam/:Id',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/viewcam.html',
+		controller: 'viewcamCtrl'
+      }
+    }
+  })
 
   .state('app.addPlant', {
       url: '/addPlant/:Id',

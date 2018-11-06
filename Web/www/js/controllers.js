@@ -82,8 +82,12 @@ angular.module('starter.controllers', [])
 	
 })
 
+.controller('viewcamCtrl', function($scope, $state,  $stateParams) {
+	$scope.id = $stateParams.Id;
+})
+
 .controller('CamCtrl', function($scope, $state, $stateParams) {
-	
+	$scope.list = [[{name:"cam1",state:"balanced"},{name:"cam2",state:"balanced"}],[{name:"cam3",state:"assertive"},{name:"cam4",state:"balanced"}]];
 })
 
 .controller('GarageCtrl', function($scope, $state, $stateParams) {
