@@ -16,10 +16,14 @@
 			   <div class="col text-center"><h4>เวลา</h4></div>
 			   <div class="col text-center"><h4>ON/OFF</h4></div>
 			</div>	
-			<a class="item" href="#/app/addPlant/{{item.index}}" ng-repeat="item in list">
+			<div class="item" ng-repeat="item in list">
 				<div class="row">
+					<a href="#/app/addPlant/{{item.index}}" class="col col-center text-center">
 				   <div class="col col-center text-center"><h2>{{item.text}}</h2></div>
+				</a>
+				<a href="#/app/addPlant/{{item.index}}" class="col col-center text-center">
 				   <div class="col col-center text-center"><h2>{{item.time}}</h2></div>
+				</a>
 				   <div class="col col-center text-center">
 						<label class="toggle toggle-green">
 							<input type="checkbox">
@@ -29,7 +33,7 @@
 						</label>
 				   </div>
 				</div>
-			</a>
+			</div>
 		</div>
 	</ion-content>
 </ion-view>
