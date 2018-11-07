@@ -1,6 +1,21 @@
 <ion-view view-title="Music">
     <ion-content>
+      <div class="list card">
       
+        <div class="item item-body">
+          <img class="full-image" src="{{musicpic}}">
+          <h2><i class="icon"></i>{{songname}}</h2>
+          <h3>{{artist}}</h3>
+          <div class="text-center">
+          <button class="button button-outline button-positive"><i class="icon"></button></div><br>
+          <div class="item range">
+            
+            <input type="range" name="volume" min="0" max="100" value="0">
+
+          </div>
+        </div>
+      
+      </div>
     </ion-content>
   </ion-view>
   
