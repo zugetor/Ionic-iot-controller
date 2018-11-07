@@ -184,7 +184,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TempCtrl', function($scope, $state, $stateParams) {
-	
+$scope.tempGauge = createVerGauge('temp', -20, 60, ' °C').setVal(29);
+$scope.humGauge = createRadGauge('hum', 0, 100, '%').setVal(37);	
 })
 
 .controller('LightCtrl', function($scope, $state, $rootScope, LightEdit) {
