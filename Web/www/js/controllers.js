@@ -91,10 +91,8 @@ angular.module('starter.controllers', [])
 	};
 })
 
-
-
-.controller('BellCtrl', function($scope, $state,  $stateParams) {
-	 var statics = nipplejs.create({
+.controller('VaccumCtrl', function($scope, $state,  $stateParams) {	
+	var statics = nipplejs.create({
         zone: document.getElementById('static'),
         mode: 'static',
         position: {left: '50%', top: '50%'},
@@ -163,7 +161,26 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MusicCtrl', function($scope, $state, $stateParams) {
-	
+	$scope.artist="Oasis";
+	$scope.songname="Stop Crying Your Heart Out";
+	$scope.musicpic="img/sleep_icon.jpg";
+	$scope.playlist = [
+		{name:"something just like this",pic:"img/sofa_icon.png",artist:"The Chainsmokers & Coldplay "},
+		{name:"Hello",cpic:"img/sleep_icon.jpg",artist:"Adele"},
+		{name:"I Feel It Coming",pic:"img/kitchen_icon.png",artist:"The Weeknd ft. Daft Punk"},
+		{name:"Lost Stars",pic:"img/bathroom_icon.png",artist:"Adam Levine"},
+		{name:"I'm Yours",pic:"img/home_icon.png",artist:"Jason Mraz"},
+		{name:"Let Her Go",pic:"img/garage_icon.png",artist:"Passenger"}];
+})
+
+.controller('SelectsongCtrl', function($scope, $state, $stateParams) {
+	$scope.playlist = [
+		{name:"something just like this",pic:"img/sofa_icon.png",artist:"The Chainsmokers & Coldplay "},
+		{name:"Hello",cpic:"img/sleep_icon.jpg",artist:"Adele"},
+		{name:"I Feel It Coming",pic:"img/kitchen_icon.png",artist:"The Weeknd ft. Daft Punk"},
+		{name:"Lost Stars",pic:"img/bathroom_icon.png",artist:"Adam Levine"},
+		{name:"I'm Yours",pic:"img/home_icon.png",artist:"Jason Mraz"},
+		{name:"Let Her Go",pic:"img/garage_icon.png",artist:"Passenger"}];
 })
 
 .controller('TempCtrl', function($scope, $state, $stateParams) {

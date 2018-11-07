@@ -77,12 +77,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
     }
   })
 
-  .state('app.bell', {
-    url: '/bell',
+  .state('app.vaccum', {
+    url: '/vaccum',
     views: {
       'menuContent': {
-        templateUrl: 'templates/bell.html',
-		controller: 'BellCtrl'
+        templateUrl: 'templates/vaccum.html',
+		controller: 'VaccumCtrl'
       }
     }
   })
@@ -163,6 +163,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
         'menuContent': {
           templateUrl: 'templates/addLight.html',
 		  controller: 'LightCtrl2'
+        }
+      }
+    })
+
+    .state('app.selectsong', {
+      url: '/selectsong',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/selectsong.html',
+      controller: 'SelectsongCtrl'
         }
       }
     })
