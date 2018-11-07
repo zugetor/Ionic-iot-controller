@@ -162,7 +162,7 @@ angular.module('starter.controllers', [])
 
 .controller('MusicCtrl', function($scope, $state, $stateParams) {
 	var playpause=0;
-	var songpointer=0;
+	var songpointer=$stateParams.Id;
 		$scope.playlist = [
 		{name:"something just like this",pic:"img/Music_cover/some_thing.jpg",artist:"The Chainsmokers & Coldplay "},
 		{name:"Hello",pic:"img/Music_cover/hello.jpg",artist:"Adele"},
@@ -170,9 +170,9 @@ angular.module('starter.controllers', [])
 		{name:"Lost Stars",pic:"img/Music_cover/loststar.jpg",artist:"Adam Levine"},
 		{name:"I'm Yours",pic:"img/Music_cover/imyour.jpg",artist:"Jason Mraz"},
 		{name:"Let Her Go",pic:"img/Music_cover/lethergo.jpg",artist:"Passenger"}];
-		$scope.artist=$scope.playlist[0]["artist"];
-		$scope.songname=$scope.playlist[0]["name"];
-		$scope.musicpic=$scope.playlist[0]["pic"];
+		$scope.artist=$scope.playlist[songpointer]["artist"];
+		$scope.songname=$scope.playlist[songpointer]["name"];
+		$scope.musicpic=$scope.playlist[songpointer]["pic"];
 		$scope.btcolor="balanced";
 		$scope.btstatus="play";
 		$scope.PlayPause=function(){
@@ -220,17 +220,17 @@ angular.module('starter.controllers', [])
 
 .controller('SelectsongCtrl', function($scope, $state, $stateParams) {
 	$scope.playlist = [
-		{name:"something just like this",pic:"img/sofa_icon.png",artist:"The Chainsmokers & Coldplay "},
-		{name:"Hello",cpic:"img/sleep_icon.jpg",artist:"Adele"},
-		{name:"I Feel It Coming",pic:"img/kitchen_icon.png",artist:"The Weeknd ft. Daft Punk"},
-		{name:"Lost Stars",pic:"img/bathroom_icon.png",artist:"Adam Levine"},
-		{name:"I'm Yours",pic:"img/home_icon.png",artist:"Jason Mraz"},
-		{name:"Let Her Go",pic:"img/garage_icon.png",artist:"Passenger"}];
+		{name:"something just like this",pic:"img/Music_cover/some_thing.jpg",artist:"The Chainsmokers & Coldplay "},
+		{name:"Hello",pic:"img/Music_cover/hello.jpg",artist:"Adele"},
+		{name:"I Feel It Coming",pic:"img/Music_cover/feel.jpg",artist:"The Weeknd ft. Daft Punk"},
+		{name:"Lost Stars",pic:"img/Music_cover/loststar.jpg",artist:"Adam Levine"},
+		{name:"I'm Yours",pic:"img/Music_cover/imyour.jpg",artist:"Jason Mraz"},
+		{name:"Let Her Go",pic:"img/Music_cover/lethergo.jpg",artist:"Passenger"}];
 })
 
 .controller('TempCtrl', function($scope, $state, $stateParams) {
-$scope.tempGauge = createVerGauge('temp', -20, 60, ' °C').setVal(29);
-$scope.humGauge = createRadGauge('hum', 0, 100, '%').setVal(37);	
+	$scope.tempGauge = createVerGauge('temp', -20, 60, ' °C').setVal(29);
+	$scope.humGauge = createRadGauge('hum', 0, 100, '%').setVal(37);	
 })
 
 .controller('LightCtrl', function($scope, $state, $rootScope, LightEdit) {

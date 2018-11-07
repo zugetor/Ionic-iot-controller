@@ -2,7 +2,7 @@
     <ion-content>
         <div class="list">
 
-            <a class="item item-thumbnail-left" href="#" ng-repeat="song in playlist">
+            <a class="item item-thumbnail-left" ng-repeat="song in playlist" href="#/app/music/{{$index}}">
               <img src="{{song.pic}}">
               <h2>{{song.name}}</h2>
               <p>{{song.artist}}</p>

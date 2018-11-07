@@ -118,7 +118,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
   })
 
   .state('app.music', {
-    url: '/music',
+    url: '/music/:Id',
     views: {
       'menuContent': {
         templateUrl: 'templates/music.html',
