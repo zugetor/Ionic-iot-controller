@@ -1,16 +1,19 @@
 <ion-view view-title="select song">
     <ion-content>
         <div class="list">
-
             <a class="item item-thumbnail-left" ng-repeat="song in playlist" href="#/app/music/{{$index}}">
               <img src="{{song.pic}}">
               <h2>{{song.name}}</h2>
               <p>{{song.artist}}</p>
-            </a>
-        
-            
-        
-        </div>
+            </a>                            
+        </div>		
     </ion-content>
+	<div class="bar bar-footer">
+        <button class="button button-outline button-medium button-positive"><i class="icon ion-skip-backward"></i></button>
+		<div class="title" style="top: unset;">
+			<button class="button button-outline button-large button-{{btcolor}}" ng-click="PlayPause()"><i class="icon ion-{{btstatus}}"></i></button>
+		</div>
+		<button class="button button-outline button-medium button-positive"><i class="icon ion-skip-forward"></i></button>
+	</div>
   </ion-view>
   

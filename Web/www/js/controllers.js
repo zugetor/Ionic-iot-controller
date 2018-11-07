@@ -226,6 +226,22 @@ angular.module('starter.controllers', [])
 		{name:"Lost Stars",pic:"img/Music_cover/loststar.jpg",artist:"Adam Levine"},
 		{name:"I'm Yours",pic:"img/Music_cover/imyour.jpg",artist:"Jason Mraz"},
 		{name:"Let Her Go",pic:"img/Music_cover/lethergo.jpg",artist:"Passenger"}];
+	var playpause=0;
+	$scope.btcolor="balanced";
+	$scope.btstatus="play";
+	$scope.PlayPause=function(){
+		if(playpause==0){
+			playpause=1;
+			this.btcolor="assertive";
+			this.btstatus="pause";
+		}
+		else{
+			playpause=0;
+			this.btcolor="balanced";
+			this.btstatus="play";
+		}
+	};
+		
 })
 
 .controller('TempCtrl', function($scope, $state, $stateParams) {
