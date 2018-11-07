@@ -94,10 +94,11 @@ angular.module('starter.controllers', [])
 
 
 .controller('BellCtrl', function($scope, $state,  $stateParams) {
-	 var static = nipplejs.create({
+	 var statics = nipplejs.create({
         zone: document.getElementById('static'),
         mode: 'static',
         position: {left: '50%', top: '50%'},
+		size: 150,
         color: 'Aqua'
     });
 })
