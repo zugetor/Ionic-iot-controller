@@ -91,14 +91,12 @@ angular.module('starter.controllers', [])
 	};
 })
 
-
-
-
-.controller('VaccumCtrl', function($scope, $state,  $stateParams) {
-	var static = nipplejs.create({
+.controller('VaccumCtrl', function($scope, $state,  $stateParams) {	
+	var statics = nipplejs.create({
         zone: document.getElementById('static'),
         mode: 'static',
         position: {left: '50%', top: '50%'},
+		size: 150,
         color: 'Aqua'
     });
 })
