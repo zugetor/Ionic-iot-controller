@@ -161,16 +161,61 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MusicCtrl', function($scope, $state, $stateParams) {
-	$scope.artist="Oasis";
-	$scope.songname="Stop Crying Your Heart Out";
-	$scope.musicpic="img/sleep_icon.jpg";
-	$scope.playlist = [
-		{name:"something just like this",pic:"img/sofa_icon.png",artist:"The Chainsmokers & Coldplay "},
-		{name:"Hello",cpic:"img/sleep_icon.jpg",artist:"Adele"},
-		{name:"I Feel It Coming",pic:"img/kitchen_icon.png",artist:"The Weeknd ft. Daft Punk"},
-		{name:"Lost Stars",pic:"img/bathroom_icon.png",artist:"Adam Levine"},
-		{name:"I'm Yours",pic:"img/home_icon.png",artist:"Jason Mraz"},
-		{name:"Let Her Go",pic:"img/garage_icon.png",artist:"Passenger"}];
+	var playpause=0;
+	var songpointer=0;
+		$scope.playlist = [
+		{name:"something just like this",pic:"img/Music_cover/some_thing.jpg",artist:"The Chainsmokers & Coldplay "},
+		{name:"Hello",pic:"img/Music_cover/hello.jpg",artist:"Adele"},
+		{name:"I Feel It Coming",pic:"img/Music_cover/feel.jpg",artist:"The Weeknd ft. Daft Punk"},
+		{name:"Lost Stars",pic:"img/Music_cover/loststar.jpg",artist:"Adam Levine"},
+		{name:"I'm Yours",pic:"img/Music_cover/imyour.jpg",artist:"Jason Mraz"},
+		{name:"Let Her Go",pic:"img/Music_cover/lethergo.jpg",artist:"Passenger"}];
+		$scope.artist=$scope.playlist[0]["artist"];
+		$scope.songname=$scope.playlist[0]["name"];
+		$scope.musicpic=$scope.playlist[0]["pic"];
+		$scope.btcolor="balanced";
+		$scope.btstatus="play";
+		$scope.PlayPause=function(){
+		if(playpause==0){
+			playpause=1;
+			this.btcolor="assertive";
+			this.btstatus="pause";
+		}
+		else{
+			playpause=0;
+			this.btcolor="balanced";
+			this.btstatus="play";
+		}
+		};
+	$scope.nextsong=function(){
+		if(songpointer<this.playlist.length-1){
+			songpointer++;
+		this.artist=this.playlist[songpointer]["artist"];
+		this.songname=this.playlist[songpointer]["name"];
+		this.musicpic=this.playlist[songpointer]["pic"];
+		if(playpause==1){
+			playpause=0;
+			this.btcolor="balanced";
+			this.btstatus="play";
+		};
+		}
+		
+		
+	}
+	$scope.backsong=function(){
+		if(songpointer>0){
+			songpointer--;
+		this.artist=this.playlist[songpointer]["artist"];
+		this.songname=this.playlist[songpointer]["name"];
+		this.musicpic=this.playlist[songpointer]["pic"];
+		if(playpause==1){
+			playpause=0;
+			this.btcolor="balanced";
+			this.btstatus="play";
+		};
+		
+		}
+	}
 })
 
 .controller('SelectsongCtrl', function($scope, $state, $stateParams) {
