@@ -7,9 +7,9 @@
           <h2><i class="icon"></i>{{songname}}</h2>
           <h3>{{artist}}</h3>
           <div class="text-center">
-              <button class="button button-outline button-medium button-positive"><i class="icon ion-skip-backward"></i></button>
+              <button class="button button-outline button-medium button-positive" ng-click="backsong()"><i class="icon ion-skip-backward"></i></button>
           <button class="button button-outline button-large button-{{btcolor}}" ng-click="PlayPause()"><i class="icon ion-{{btstatus}}"></i></button>
-          <button class="button button-outline button-medium button-positive"><i class="icon ion-skip-forward"></i></button>
+          <button class="button button-outline button-medium button-positive" ng-click="nextsong()"><i class="icon ion-skip-forward"></i></button>
         </div><br>
           <div class="item range">
             
