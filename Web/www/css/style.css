@@ -52,3 +52,12 @@ body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
 .song-big{
     width: 75%;
     height: auto;};
+
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0.5s;
+}

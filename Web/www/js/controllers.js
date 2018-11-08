@@ -96,10 +96,12 @@ angular.module('starter.controllers', [])
         zone: document.getElementById('static'),
         mode: 'static',
         position: {left: '50%', top: '50%'},
-		size: 150,
-        color: 'Aqua'
-    });
+		size: 200,
+        color: 'darkorange'
+	});
+	$scope.Omanual="";
 })
+
 
 .controller('viewcamCtrl', function($scope, $state,  $stateParams) {
 	$scope.id = $stateParams.Id;
