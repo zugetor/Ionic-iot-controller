@@ -45,7 +45,6 @@ angular.module('starter.controllers', [])
 			$rootScope.$broadcast('edit');
         }
      }
-
 })
 
 .controller('HomeCtrl', function($scope, $state, PlantEdit, $stateParams) {
@@ -60,7 +59,7 @@ angular.module('starter.controllers', [])
 			$("#fan").prop('disabled', true);
 	$scope.monitorstatus="monitor-grey";
 	$scope.temperature = 25;
-	$scope.tempColor = "balanced";	
+	$scope.tempColor = "balanced";
 	$scope.changeColor=function(temp){
 		if(temp > 35){
 			$scope.tempColor = "assertive";
