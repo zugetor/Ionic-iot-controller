@@ -9,7 +9,7 @@
                     <i class="icon"><img class="img-icon" src="{{item.urlicon}}"></i>
                {{item.text}}
                <label class="toggle toggle-green">
-                 <input type="checkbox" ng-model="lightall.checked">
+                 <input type="checkbox" id="lighton{{item.index}}">
                  <div class="track">
                    <div class="handle"></div>
                  </div>
@@ -18,11 +18,11 @@
           </ul>
           <div class="row">
             <div class="col col-50 text-center">
-            <button class="button button-balanced" ng-click="openall()">เปิดไฟทั้งหมด</button>
-            </div>
-            <div class="col col-50 text-center">
                 <button class="button button-assertive" ng-click="closeall()">ปิดไฟทั้งหมด</button>
                 </div>
+                <div class="col col-50 text-center">
+                    <button class="button button-balanced" ng-click="openall()">เปิดไฟทั้งหมด</button>
+                    </div>
             </div>
     </ion-content>
     </div>

@@ -274,7 +274,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LightCtrl', function($scope, $state, $rootScope, LightEdit) {
-	$scope.lightall = { checked: false };
+	
 	$scope.list = [
 		{text:"ห้องนั่งเล่น",urlicon:"img/sofa_icon.png",index:0},
 		{text:"ห้องนอน",urlicon:"img/sleep_icon.jpg",index:1},
@@ -289,10 +289,14 @@ angular.module('starter.controllers', [])
 	});
 	
 	$scope.openall=function(){
-		this.lightall = { checked: true };
+		for(i=0;i<$scope.list.length;i++){
+		$("#lighton"+i).prop('checked', true);
+		}
 	};
 	$scope.closeall=function(){
-		this.lightall = { checked: false };
+		for(i=0;i<$scope.list.length;i++){
+			$("#lighton"+i).prop('checked', false);
+			}
 	};
 })
 .controller('LightCtrl2', function($scope, $state, LightEdit, $stateParams) {
