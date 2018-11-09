@@ -23,7 +23,7 @@
                   
                 </div>
                 <div class="col col-33 {{tempColor}}"> 
-                   <h1 class="{{tempColor}} {{monitorstatus}}">{{temperature}}</h1> Celcius 
+                   <h1 class="{{tempColor}} {{monitorstatus}}">{{temperature}}</h1> <h2 class="{{monitorstatus}}">Celcius</h2> 
                   </div>
               </div>
             </div>
@@ -40,7 +40,7 @@
 
               
                 <div class="col col-20">
-            <button ng-click="decreaseTemp()" class="button button-calm" id="decTemp"><i class="icon ion-minus"></i></button>
+            <button ng-click="decreaseTemp()" class="button button-calm right" id="decTemp"><i class="icon ion-minus"></i></button>
             </div>
             <div class="col col-60">
                     <label class="item item-input">
@@ -48,8 +48,8 @@
                           </label>
             </div>
             &nbsp;&nbsp;
-            <div class="col col-20">
-            <button ng-click="increaseTemp()" class="button button-calm" id="incTemp"><i class="icon ion-plus"></i></button>
+            <div class="col col-10">
+            <button ng-click="increaseTemp()" class="button button-calm left" id="incTemp"><i class="icon ion-plus"></i></button>
             </div>
           </div>
 
