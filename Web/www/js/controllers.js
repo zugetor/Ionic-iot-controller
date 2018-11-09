@@ -53,16 +53,22 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AirCtrl', function($scope, $state, $stateParams) {
+	$("#decTemp").prop('disabled', true);
+			$("#incTemp").prop('disabled', true);
+			$("#Temp").prop('disabled', true);
+			$("#mode").prop('disabled', true);
+			$("#fan").prop('disabled', true);
+	$scope.monitorstatus="monitor-grey";
 	$scope.temperature = 25;
 	$scope.tempColor = "balanced";	
 	$scope.changeColor=function(temp){
-		if(temp > 50){
+		if(temp > 35){
 			$scope.tempColor = "assertive";
 		}else{
-			if(temp > 40 && temp <= 50){
+			if(temp > 30 && temp <= 35){
 				$scope.tempColor = "energized";
 			}else{
-				if(temp > 20 && temp <= 40){
+				if(temp > 23 && temp <= 30){
 					$scope.tempColor = "balanced";
 				}else{
 					$scope.tempColor = "positive";
@@ -81,24 +87,29 @@ angular.module('starter.controllers', [])
 	$scope.stoptime="-";
 	$scope.changepower=function(){
 		if($scope.powerstatus==0){
+			$scope.monitorstatus=""
 			$scope.airpower="balanced";
 			$scope.powerstatus=1;
+			$("#decTemp").prop('disabled', false);
+			$("#incTemp").prop('disabled', false);
+			$("#Temp").prop('disabled', false);
+			$("#mode").prop('disabled', false);
+			$("#fan").prop('disabled', false);
 		}
 		else if($scope.powerstatus==1){
+			$scope.monitorstatus="monitor-grey"
 			$scope.airpower="assertive";
 			$scope.powerstatus=0;
+			$("#decTemp").prop('disabled', true);
+			$("#incTemp").prop('disabled', true);
+			$("#Temp").prop('disabled', true);
+			$("#mode").prop('disabled', true);
+			$("#fan").prop('disabled', true);
 		}
 	};
 })
 
-.controller('VaccumCtrl', function($scope, $state,  $stateParams,$interval) {	
-	var statics = nipplejs.create({
-        zone: document.getElementById('static'),
-        mode: 'static',
-        position: {left: '50%', top: '70%'},
-		size: 200,
-        color: 'darkorange'
-	});
+.controller('VaccumCtrl', function($scope, $state,  $stateParams,$interval) {
 	$scope.Omanual="";
 	$scope.batterypercent="100";
 	$scope.batterypic="img/battery.svg";

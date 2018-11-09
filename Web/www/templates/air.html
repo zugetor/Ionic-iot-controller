@@ -8,22 +8,22 @@
               <div class="row">
                 <div class="col col-66">
                     <div class="row">
-                        <u>fan level :</u>&nbsp; <img class="fanlevel" src=img/fan{{fanlevel}}.png>
+                        <u class="{{monitorstatus}}">fan level :</u>&nbsp; <img class="fanlevel" src=img/fan{{fanlevel}}.png>
                     </div>  
                     
                   <div class="row">
-                       <u> mode : </u> &nbsp;&nbsp;{{airmode}}
+                       <u class="{{monitorstatus}}"> mode : </u> &nbsp;&nbsp;<u class="{{monitorstatus}}">{{airmode}}</u>
                     </div>
                     <div class="row">
-                        <u>start time :</u>{{starttime}}
+                        <u class="{{monitorstatus}}">start time :</u>{{starttime}}
                     </div>
                     <div class="row">
-                        <u>stop time :</u>
+                        <u class="{{monitorstatus}}">stop time :</u>
                     </div>
                   
                 </div>
                 <div class="col col-33 {{tempColor}}"> 
-                   <h1 class="{{tempColor}}">{{temperature}}</h1> Celcius 
+                   <h1 class="{{tempColor}} {{monitorstatus}}">{{temperature}}</h1> Celcius 
                   </div>
               </div>
             </div>
@@ -40,16 +40,16 @@
 
               
                 <div class="col col-20">
-            <button ng-click="decreaseTemp()" class="button button-calm"><i class="icon ion-minus"></i></button>
+            <button ng-click="decreaseTemp()" class="button button-calm" id="decTemp"><i class="icon ion-minus"></i></button>
             </div>
             <div class="col col-60">
                     <label class="item item-input">
-                            <input type="text"  value="{{temperature}}" ng-model="temperature" ng-change="change()">
+                            <input type="text"  value="{{temperature}}" ng-model="temperature" ng-change="change()" id="Temp">
                           </label>
             </div>
             &nbsp;&nbsp;
             <div class="col col-20">
-            <button ng-click="increaseTemp()" class="button button-calm"><i class="icon ion-plus"></i></button>
+            <button ng-click="increaseTemp()" class="button button-calm" id="incTemp"><i class="icon ion-plus"></i></button>
             </div>
           </div>
 
@@ -59,7 +59,7 @@
                       <div class="input-label">
                         Mode
                       </div>
-                      <select ng-model="airmode">
+                      <select ng-model="airmode" id="mode">
                             <option value="normal">normal</option>
                         <option value="silent">silent</option>
                         <option value="powerful">powerful</option>
@@ -73,7 +73,7 @@
                       <div class="input-label">
                         Fan level
                       </div>
-                      <select ng-model="fanlevel">
+                      <select ng-model="fanlevel" id="fan">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
