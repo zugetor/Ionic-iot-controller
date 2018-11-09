@@ -25,10 +25,17 @@
         </ul>
           </div>
 </div>
-
-				<div class="stick" ng-show="Omanual">
-					<div id="static" width="120%"></div>
+        <div class="row">
+        <div class="col col-25 col-offset-25 text-center">
+          <img class="imgsize-96" src="{{batterypic}}">
         </div>
+        <div class="col col-25 text-center">
+            <p class="size-32 battery-text">{{batterypercent}}%</p>
+          </div>
+          </div>
+          <div class="stick" ng-show="Omanual">
+              <div id="static" width="120%"></div>
+            </div>
     </ion-content>
   </ion-view>
   

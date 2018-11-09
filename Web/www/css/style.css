@@ -53,3 +53,19 @@ body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
     width: 75%;
     height: auto;
 };
+
+.imgsize-12 { width: 12px; }
+.imgsize-14 { width: 14px; }
+.imgsize-16 { width: 16px; }
+.imgsize-18 { width: 18px; }
+.imgsize-21 { width: 21px; }
+.imgsize-24 { width: 24px; }
+.imgsize-32 { width: 32px; }
+.imgsize-48 { width: 48px; }
+.imgsize-64 { width: 64px; }
+.imgsize-96 { width: 96px; }
+
+.battery-text{
+	padding: 45% 0;
+    text-align: center;
+}

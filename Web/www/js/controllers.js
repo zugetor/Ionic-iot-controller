@@ -91,15 +91,37 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('VaccumCtrl', function($scope, $state,  $stateParams) {	
+.controller('VaccumCtrl', function($scope, $state,  $stateParams,$interval) {	
 	var statics = nipplejs.create({
         zone: document.getElementById('static'),
         mode: 'static',
-        position: {left: '50%', top: '50%'},
+        position: {left: '50%', top: '70%'},
 		size: 200,
         color: 'darkorange'
 	});
 	$scope.Omanual="";
+	$scope.batterypercent="100";
+	$scope.batterypic="img/battery.svg";
+		$interval(function () {
+		if($scope.batterypercent>0){
+			$scope.batterypercent--
+			if($scope.batterypercent==0){
+				$scope.batterypic="img/battery0.png";
+			}
+			else if($scope.batterypercent<25){
+				$scope.batterypic="img/battery25.png";
+			}
+			else if($scope.batterypercent<50){
+				$scope.batterypic="img/battery50.png";
+			}
+			else if($scope.batterypercent<75){
+				$scope.batterypic="img/battery75.png";
+			}
+				
+			}
+		}
+	, 50);
+	
 })
 
 
