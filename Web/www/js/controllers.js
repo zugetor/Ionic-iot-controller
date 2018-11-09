@@ -132,6 +132,7 @@ angular.module('starter.controllers', [])
 		if($scope.batterypercent<85){
 			$scope.storage="FULL";
 			$scope.clean();
+			$scope.vacstatus="Please clean the bag before cleaning again";
 			check=2;
 			$interval.cancel(stop);
 		}
@@ -161,7 +162,7 @@ angular.module('starter.controllers', [])
 .controller('viewcamCtrl', function($scope, $state,  $stateParams){
 	$scope.id = $stateParams.Id;
 	$scope.status="";
-	$scope.onoff="balanced"
+	$scope.onoff="";
 	$scope.sound="ion-volume-high";
 	$scope.cam = [{name:"cam1",state:"balanced",status:"Online"},{name:"cam2",state:"balanced",status:"Online"},{name:"cam3",state:"assertive",status:"Offline"},{name:"cam4",state:"balanced",status:"Online"}];
 	for(i=0;i<$scope.cam.length;i++){
@@ -169,7 +170,6 @@ angular.module('starter.controllers', [])
 			$scope.status=$scope.cam[i]["status"];
 			if($scope.status=="Offline"){
 				$scope.onoff="balanced";
-				
 			}
 			else if($scope.status=="Online"){
 				$scope.onoff="assertive";
@@ -180,11 +180,11 @@ angular.module('starter.controllers', [])
 	$scope.openCam=function(){
 		if($scope.onoff=="balanced"){
 			$scope.onoff="assertive";
-			$scope.status="Offline";
+			$scope.status="Online";
 		}
 		else if($scope.onoff=="assertive"){
 			$scope.onoff="balanced";
-			$scope.status="Online";
+			$scope.status="Offline";
 		}
 	}
 	$scope.openMic=function(){
