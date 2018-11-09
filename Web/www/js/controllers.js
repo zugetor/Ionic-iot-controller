@@ -145,11 +145,13 @@ angular.module('starter.controllers', [])
 
 .controller('GarageCtrl', function($scope, $state, $stateParams,$timeout) {
 	var status=0;
-	$scope.garagestatus="Garage is closed";
+	$scope.status="closed";
+	$scope.color="assertive";
 	$scope.garageimg="img/storage.svg";
 	$scope.changestatus=function(){
 		if(status==0){
-			$scope.garagestatus="Garage is opening ..."
+			$scope.status="opening ...";
+			$scope.color="energized";
 			$timeout(function(){
 				$scope.garageimg="img/garagestatus1.png"
 				$timeout(function(){
@@ -159,7 +161,9 @@ angular.module('starter.controllers', [])
 						$timeout(function(){
 							$scope.garageimg="img/garagestatus4.png"
 							$timeout(function(){
-								$scope.garagestatus="Garage is opened"
+								$scope.garagestatus="Garage is "
+								$scope.status="opened";
+								$scope.color="balanced";
 						},2000);
 						},1000);
 					},1000);
@@ -168,7 +172,8 @@ angular.module('starter.controllers', [])
 			status=1;
 		}
 		else{
-			$scope.garagestatus="Garage is closing ..."
+			$scope.status="closing ...";
+			$scope.color="energized";
 			$timeout(function(){
 				$scope.garageimg="img/garagestatus3.png"
 				$timeout(function(){
@@ -178,7 +183,8 @@ angular.module('starter.controllers', [])
 						$timeout(function(){
 							$scope.garageimg="img/garagestatus0.png"
 							$timeout(function(){
-								$scope.garagestatus="Garage is closed"
+								$scope.status="closed";
+								$scope.color="assertive";
 						},2000);
 						},1000);
 					},1000);
