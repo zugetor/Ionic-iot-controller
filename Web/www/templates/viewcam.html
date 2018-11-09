@@ -7,17 +7,20 @@
 			</video>
 		</div>
 		<div class="list">
-			<div class="item item-icon-left" href="#">				
+			<div class="item item-icon-left" href="#">
 				Location : ทางหลวง
 			</div>
-			<div class="item item-icon-left" href="#">				
-				Status : Online
+			<div class="item item-icon-left" href="#">
+				Status : {{status}}
 			</div>
 		</div>
 		<div class="row" style="align-items: center;">
-			<div class="col text-center">
-				<button class="button button-outline button-large button-positive"><i class="icon ion-mic-a"></i></button>				
+			<div class="col col-25 col-offset-25 text-center">
+				<button class="button button-outline button-large button-positive" ng-click=openCam()><i class="icon ion-power {{onoff}}"></i></button>				
 			</div>
+			<div class="col col-25 text-center">
+					<button class="button button-outline button-large button-positive" ng-click="openMic()"><i class="icon {{sound}}"></i></button>				
+				</div>
 		</div>
     </ion-content>
   </ion-view>

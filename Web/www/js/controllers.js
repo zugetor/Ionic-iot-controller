@@ -135,12 +135,47 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('viewcamCtrl', function($scope, $state,  $stateParams) {
+.controller('viewcamCtrl', function($scope, $state,  $stateParams){
 	$scope.id = $stateParams.Id;
+	$scope.status="";
+	$scope.onoff="balanced"
+	$scope.sound="ion-volume-high";
+	$scope.cam = [{name:"cam1",state:"balanced",status:"Online"},{name:"cam2",state:"balanced",status:"Online"},{name:"cam3",state:"assertive",status:"Offline"},{name:"cam4",state:"balanced",status:"Online"}];
+	for(i=0;i<$scope.cam.length;i++){
+		if($scope.id==$scope.cam[i]["name"]){
+			$scope.status=$scope.cam[i]["status"];
+			if($scope.status=="Offline"){
+				$scope.onoff="balanced";
+				
+			}
+			else if($scope.status=="Online"){
+				$scope.onoff="assertive";
+				
+			}
+		}
+	}
+	$scope.openCam=function(){
+		if($scope.onoff=="balanced"){
+			$scope.onoff="assertive";
+			$scope.status="Offline";
+		}
+		else if($scope.onoff=="assertive"){
+			$scope.onoff="balanced";
+			$scope.status="Online";
+		}
+	}
+	$scope.openMic=function(){
+		if($scope.sound=="ion-volume-high"){
+			$scope.sound="ion-volume-mute";
+		}
+		else if($scope.sound=="ion-volume-mute"){
+			$scope.sound="ion-volume-high";
+		}
+	}
 })
 
 .controller('CamCtrl', function($scope, $state, $stateParams) {
-	$scope.list = [[{name:"cam1",state:"balanced"},{name:"cam2",state:"balanced"}],[{name:"cam3",state:"assertive"},{name:"cam4",state:"balanced"}]];
+	$scope.list = [[{name:"cam1",state:"balanced",status:"Online"},{name:"cam2",state:"balanced",status:"Online"}],[{name:"cam3",state:"assertive",status:"Online"},{name:"cam4",state:"balanced",status:"Online"}]];
 })
 
 .controller('GarageCtrl', function($scope, $state, $stateParams,$timeout) {
