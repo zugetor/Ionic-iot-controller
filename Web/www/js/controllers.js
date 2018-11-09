@@ -108,29 +108,52 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('VaccumCtrl', function($scope, $state,  $stateParams,$interval) {
-	$scope.Omanual="";
-	$scope.batterypercent="100";
-	$scope.batterypic="img/battery.svg";
-		$interval(function () {
-		if($scope.batterypercent>0){
-			$scope.batterypercent--
-			if($scope.batterypercent==0){
-				$scope.batterypic="img/battery0.png";
-			}
-			else if($scope.batterypercent<25){
-				$scope.batterypic="img/battery25.png";
-			}
-			else if($scope.batterypercent<50){
-				$scope.batterypic="img/battery50.png";
-			}
-			else if($scope.batterypercent<75){
-				$scope.batterypic="img/battery75.png";
-			}
-				
-			}
+.controller('VaccumCtrl', function($scope, $state,  $stateParams,$interval,$timeout) {
+	var stop;
+	var start;
+	$scope.batterypercent=100;
+	var check=0;
+	$scope.storage="EMPTY"
+	$scope.imgvac="img/clean_button.png";
+	$scope.vacstatus="Ready to clean";
+	$scope.clean=function(){
+		if(check==0){
+		$scope.imgvac="img/charge_button.png";
+		$scope.vacstatus="CLEANING...";
+		check=1;
+		$scope.batterypic="img/battery.svg";
+	stop=$interval(function () {
+		if($scope.batterypercent!=0){
+		$scope.batterypercent--;}
+		else{$scope.clean();}
+		if($scope.batterypercent<95){
+			$scope.storage="BALANCE";
 		}
-	, 50);
+		if($scope.batterypercent<85){
+			$scope.storage="FULL";
+			$scope.clean();
+			check=2;
+			$interval.cancel(stop);
+		}
+	}
+	, 1000);
+	$interval.cancel(start);
+		}
+		else if(check==1){
+			$scope.imgvac="img/clean_button.png";
+		$scope.vacstatus="Charging ...";
+		check=0;
+		$interval.cancel(stop);
+		start=$interval(function () {
+			if($scope.batterypercent!=100){
+			$scope.batterypercent++;}
+			if($scope.batterypercent==100){
+				$scope.vacstatus="Ready to clean";
+			}
+		},2000);
+		}
+	};
+	  
 	
 })
 
@@ -326,7 +349,6 @@ angular.module('starter.controllers', [])
 	$scope.recommentTemp="เปิดแอร์เพื่อให้ค่าไฟที่บ้านเปลืองเล่นๆมั้ยพ่อหนุ่ม";
 	$scope.humGauge = createRadGauge('hum', 0, 100, '%').setVal($scope.humidVal);
 	$scope.tempGauge = createVerGauge('temp', -20, 60, ' °C').setVal($scope.tempVal).setColor("red");
-		
 })
 
 .controller('LightCtrl', function($scope, $state, $rootScope, LightEdit) {

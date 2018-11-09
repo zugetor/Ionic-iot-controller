@@ -1,31 +1,16 @@
 <ion-view view-title="Vaccum cleaner CT">
     <ion-content>
-<div class="row">
-  <div class="col col-100">
-      <ul class="list">
-          <li class="item item-toggle">
-             ON/OFF
-             <label class="toggle toggle-assertive">
-               <input type="checkbox">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-        </ul>
-          </div>
+      <div class="row">
+<div class="col col-100 text-center">
+<h1>{{vacstatus}}</h1>
+<br>
+<img src="{{imgvac}}" style="width:80%" ng-click="clean()">
 </div>
-        <div class="row">
-        <div class="col col-25 col-offset-25 text-center">
-          <img class="imgsize-96" src="{{batterypic}}">
-        </div>
-        <div class="col col-25 text-center">
-            <p class="size-32 battery-text">{{batterypercent}}%</p>
-          </div>
-          </div>
-          <div class="stick" ng-show="Omanual">
-              <div id="static" width="120%"></div>
-            </div>
+</div>
+<div class="col col-100 text-center">
+    <h3>เวลาคงเหลือ {{batterypercent}} นาที</h3>
+    <h2>สถานะถุงบรรจุ {{storage}}</h2>
+  </div>
     </ion-content>
   </ion-view>
   
