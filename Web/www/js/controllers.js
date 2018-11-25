@@ -57,6 +57,8 @@ angular.module('starter.controllers', [])
 			$("#Temp").prop('disabled', true);
 			$("#mode").prop('disabled', true);
 			$("#fan").prop('disabled', true);
+			$("#xx").prop('disabled', true);
+			$("#yy").prop('disabled', true);
 	$scope.monitorstatus="monitor-grey";
 	$scope.temperature = 25;
 	$scope.tempColor = "balanced";
@@ -80,7 +82,7 @@ angular.module('starter.controllers', [])
 	$scope.change=function(){$scope.changeColor(this.temperature);};
 	$scope.powerstatus=0;
 	$scope.airpower="assertive";
-	$scope.airmode="normal";
+	$scope.airmode="ปกติ";
 	$scope.fanlevel="1";
 	$scope.starttime="-";
 	$scope.stoptime="-";
@@ -94,6 +96,8 @@ angular.module('starter.controllers', [])
 			$("#Temp").prop('disabled', false);
 			$("#mode").prop('disabled', false);
 			$("#fan").prop('disabled', false);
+			$("#xx").prop('disabled', false);
+			$("#yy").prop('disabled', false);
 		}
 		else if($scope.powerstatus==1){
 			$scope.monitorstatus="monitor-grey"
@@ -104,6 +108,8 @@ angular.module('starter.controllers', [])
 			$("#Temp").prop('disabled', true);
 			$("#mode").prop('disabled', true);
 			$("#fan").prop('disabled', true);
+			$("#xx").prop('disabled', true);
+			$("#yy").prop('disabled', true);
 		}
 	};
 })
@@ -113,13 +119,13 @@ angular.module('starter.controllers', [])
 	var start;
 	$scope.batterypercent=100;
 	var check=0;
-	$scope.storage="EMPTY"
+	$scope.storage="ว่าง"
 	$scope.imgvac="img/clean_button.png";
-	$scope.vacstatus="Ready to clean";
+	$scope.vacstatus="พร้อมทำความสะอาด";
 	$scope.clean=function(){
 		if(check==0){
 		$scope.imgvac="img/charge_button.png";
-		$scope.vacstatus="CLEANING...";
+		$scope.vacstatus="กำลังทำความสะอาด ...";
 		check=1;
 		$scope.batterypic="img/battery.svg";
 	stop=$interval(function () {
@@ -127,12 +133,12 @@ angular.module('starter.controllers', [])
 		$scope.batterypercent--;}
 		else{$scope.clean();}
 		if($scope.batterypercent<95){
-			$scope.storage="BALANCE";
+			$scope.storage="ปกติ";
 		}
 		if($scope.batterypercent<85){
-			$scope.storage="FULL";
+			$scope.storage="เต็ม";
 			$scope.clean();
-			$scope.vacstatus="Please clean the bag before cleaning again";
+			$scope.vacstatus="ถุงดูดฝุ่นของท่านเต็ม กรุณานำไปทิ้งก่อนทำความสะอาดอีกครั้ง";
 			check=2;
 			$interval.cancel(stop);
 		}
@@ -142,14 +148,14 @@ angular.module('starter.controllers', [])
 		}
 		else if(check==1){
 			$scope.imgvac="img/clean_button.png";
-		$scope.vacstatus="Charging ...";
+		$scope.vacstatus="กำลังชาร์จแบตเตอรี่ ...";
 		check=0;
 		$interval.cancel(stop);
 		start=$interval(function () {
 			if($scope.batterypercent!=100){
 			$scope.batterypercent++;}
 			if($scope.batterypercent==100){
-				$scope.vacstatus="Ready to clean";
+				$scope.vacstatus="พร้อมทำความสะอาด";
 			}
 		},2000);
 		}
@@ -203,12 +209,12 @@ angular.module('starter.controllers', [])
 
 .controller('GarageCtrl', function($scope, $state, $stateParams,$timeout) {
 	var status=0;
-	$scope.status="closed";
+	$scope.status="ปิด";
 	$scope.color="assertive";
 	$scope.garageimg="img/storage.svg";
 	$scope.changestatus=function(){
 		if(status==0){
-			$scope.status="opening ...";
+			$scope.status="กำลังเปิด ...";
 			$scope.color="energized";
 			$timeout(function(){
 				$scope.garageimg="img/garagestatus1.png"
@@ -220,7 +226,7 @@ angular.module('starter.controllers', [])
 							$scope.garageimg="img/garagestatus4.png"
 							$timeout(function(){
 								$scope.garagestatus="Garage is "
-								$scope.status="opened";
+								$scope.status="เปิด";
 								$scope.color="balanced";
 						},2000);
 						},1000);
@@ -230,7 +236,7 @@ angular.module('starter.controllers', [])
 			status=1;
 		}
 		else{
-			$scope.status="closing ...";
+			$scope.status="กำลังปิด ...";
 			$scope.color="energized";
 			$timeout(function(){
 				$scope.garageimg="img/garagestatus3.png"
@@ -241,7 +247,7 @@ angular.module('starter.controllers', [])
 						$timeout(function(){
 							$scope.garageimg="img/garagestatus0.png"
 							$timeout(function(){
-								$scope.status="closed";
+								$scope.status="ปิด";
 								$scope.color="assertive";
 						},2000);
 						},1000);
@@ -351,7 +357,7 @@ angular.module('starter.controllers', [])
 	$scope.tempGauge = createVerGauge('temp', -20, 60, ' °C').setVal($scope.tempVal).setColor("red");
 })
 
-.controller('LightCtrl', function($scope, $state, $rootScope, LightEdit) {
+.controller('LightCtrl', function($scope, $state, $rootScope) {
 	
 	$scope.list = [
 		{text:"ห้องนั่งเล่น",urlicon:"img/sofa_icon.png",index:0},
@@ -376,28 +382,4 @@ angular.module('starter.controllers', [])
 			$("#lighton"+i).prop('checked', false);
 			}
 	};
-})
-.controller('LightCtrl2', function($scope, $state, LightEdit, $stateParams) {
-	$scope.addval = function() {
-		var id = $stateParams.Id;
-		if(id == -1){
-			LightEdit.update();
-		}
-		$state.go('app.light');
-	};
-})
-.factory('LightEdit', function($rootScope){
-     
-     var data = {text:"ห้อง"};
-
-     return {
-        get: function(){
-			return data;
-        },
-        update : function(){
-			data = {text:document.getElementById("name").value,urlicon:"img/other_icon.png"};
-			$rootScope.$broadcast('add');
-        }
-     }
-
 })

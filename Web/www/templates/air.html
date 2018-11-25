@@ -1,4 +1,4 @@
-<ion-view view-title="AC">
+<ion-view view-title="เครื่องปรับอากาศ">
     <ion-content>
         <div class="list card">
 
@@ -8,17 +8,17 @@
               <div class="row">
                 <div class="col col-66">
                     <div class="row">
-                        <u class="{{monitorstatus}}">fan level :</u>&nbsp; <img class="fanlevel" src=img/fan{{fanlevel}}.png>
+                        <u class="{{monitorstatus}}">ความแรงพัดลม :</u>&nbsp; <img class="fanlevel" src=img/fan{{fanlevel}}.png>
                     </div>  
                     
                   <div class="row">
-                       <u class="{{monitorstatus}}"> mode : </u> &nbsp;&nbsp;<u class="{{monitorstatus}}">{{airmode}}</u>
+                       <u class="{{monitorstatus}}"> โหมด : </u> &nbsp;&nbsp;<u class="{{monitorstatus}}">{{airmode}}</u>
                     </div>
                     <div class="row">
-                        <u class="{{monitorstatus}}">start time :</u>&nbsp;&nbsp;{{starttime| date: 'H:mm'}}
+                        <u class="{{monitorstatus}}">เวลาเปิด :</u>&nbsp;&nbsp;{{starttime| date: 'H:mm'}}
                     </div>
                     <div class="row">
-                        <u class="{{monitorstatus}}">stop time :</u>
+                        <u class="{{monitorstatus}}">เวลาปิด :</u>&nbsp;&nbsp;{{stoptime| date: 'H:mm'}}
                     </div>
                   
                 </div>
@@ -57,12 +57,12 @@
 
                     <label class="item item-input item-select">
                       <div class="input-label">
-                        Mode
+                        โหมด
                       </div>
                       <select ng-model="airmode" id="mode">
-                            <option value="normal">normal</option>
-                        <option value="silent">silent</option>
-                        <option value="powerful">powerful</option>
+                            <option value="ปกติ">ปกติ</option>
+                        <option value="เงียบ">เงียบ</option>
+                        <option value="รุนแรงเหลือเกิน">รุนแรงเหลือเกิน</option>
                       </select>
                     </label>
                   
@@ -71,7 +71,7 @@
 
                     <label class="item item-input item-select">
                       <div class="input-label">
-                        Fan level
+                        ความแรงพัดลม
                       </div>
                       <select ng-model="fanlevel" id="fan">
                         <option value="1">1</option>
@@ -84,13 +84,29 @@
                   </div>
 
   
-                      <div class="list">
-                
-                        <div class="item item-input" ion-datetime-picker time ng-model="starttime">                
-                                  <span class="input-label">Time</span>
-                          <div class="input-label" id="time">{{timeValue| date: 'H:mm'}}</div> <!----format time edit--->
-                              </div>		
-                      </div>
+                  <div class="item item-input" ion-datetime-picker time ng-model="starttime">      
+                      <div class="row" id="xx">
+                        
+                            <div class="col col-50 text-left">
+                            เวลาเปิด
+                            </div>
+                             
+                              <div class="input-label text-right col col-25 col-offset-20" id="time">{{starttime| date: 'H:mm'}}</div>
+                             
+                        </div>
+                          </div>
+
+                          <div class="item item-input" ion-datetime-picker time ng-model="stoptime" id="yy">      
+                              <div class="row">
+                                
+                                    <div class="col col-50 text-left">
+                                    เวลาปิด
+                                    </div>
+                                     
+                                      <div class="input-label text-right col col-25 col-offset-20" id="time">{{stoptime| date: 'H:mm'}}</div>
+                                     
+                                </div>
+                                  </div>
             
                     
     </ion-content>

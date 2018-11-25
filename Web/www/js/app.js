@@ -37,16 +37,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
     controller: 'AppCtrl'
   })
 
-  .state('app.plant', {
-    url: '/plant',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/plant.html',
-		controller: 'plantCtrl'
-      }
-    }
-  })
-
   .state('app.home', {
     url: '/home',
     views: {
@@ -157,12 +147,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-datetime-picker'
       }
     })
 
-    .state('app.addLight', {
-      url: '/addLight/:Id',
+    .state('app.plant', {
+      url: '/plant',
       views: {
         'menuContent': {
-          templateUrl: 'templates/addLight.html',
-		  controller: 'LightCtrl2'
+          templateUrl: 'templates/plant.html',
+		  controller: 'plantCtrl'
         }
       }
     })

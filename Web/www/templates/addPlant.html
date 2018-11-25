@@ -3,31 +3,41 @@
 		<ion-nav-back-button side="left" class="button button-icon ion-ios-arrow-back">
 		</ion-nav-back-button>
 		
-		<ion-nav-title>Plant Watering</ion-nav-title>
+		<ion-nav-title>เพิ่มการรดน้ำ</ion-nav-title>
 	</ion-nav-bar>
 	<ion-content>
 		<div class="list">
 			<label class="item item-input item-stacked-label">
-				<span class="input-label">Name</span>
+				<span class="input-label">ชื่อ</span>
 				<input type="text" placeholder="Farm1" id="name">
 			</label>
 			<label class="item item-input item-stacked-label">
-				<span class="input-label">Connect</span>
+				<span class="input-label">เลือกการเชื่อมต่อ</span>
 				<input type="text" value="F-2212" disabled>
 			</label>
-			<label class="item item-input item-select">
-			<div class="input-label">
-				Repeat
-			</div>
-			<select>
-				<option selected>Every day</option>
-				<option>Every week</option>
-				<option>Every month</option>
-			</select>
-			</label>
-			<div class="item item-input item-stacked-label" ion-datetime-picker time ng-model="timeValue">                
-                <span class="input-label">Time</span>
-				<span class="input-label" id="time">{{timeValue| date: 'H:mm'}}</span>
+			
+					<li class="item item-toggle">
+							
+						ทำทุกวัน
+					   <label class="toggle toggle-green">
+						 <input type="checkbox">
+						 <div class="track">
+						   <div class="handle"></div>
+						 </div>
+					   </label>
+					</li>
+				  
+
+			<div class="item item-input" ion-datetime-picker time ng-model="timeValue">      
+				<div class="row">
+					
+							<div class="col col-50 text-left">
+							เวลา
+							</div>
+						   
+								<div class="input-label text-right col col-25 col-offset-20" id="time">{{timeValue| date: 'H:mm'}}</div>
+						   
+					</div>
             </div>		
 		</div>
 		<div class="padding">
