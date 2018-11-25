@@ -1,6 +1,11 @@
 .img-auto{
-    width: 70%;
-    height: auto;
+    width: 105px;
+    height: 125px;
+    padding-top: 1.6em; 
+}
+.img-xxx{
+    width: 125px;
+    height: 125px;
     padding-top: 1.6em; 
 }
 a{

@@ -170,7 +170,7 @@ angular.module('starter.controllers', [])
 	$scope.status="";
 	$scope.onoff="";
 	$scope.sound="ion-volume-high";
-	$scope.cam = [{name:"cam1",state:"balanced",status:"Online"},{name:"cam2",state:"balanced",status:"Online"},{name:"cam3",state:"assertive",status:"Offline"},{name:"cam4",state:"balanced",status:"Online"}];
+	$scope.cam = [{name:"หน้าบ้าน",state:"balanced",status:"Online"},{name:"ห้องครัว",state:"balanced",status:"Online"},{name:"ห้องนั่งเล่น",state:"assertive",status:"Offline"},{name:"โรงรถ",state:"balanced",status:"Online"}];
 	for(i=0;i<$scope.cam.length;i++){
 		if($scope.id==$scope.cam[i]["name"]){
 			$scope.status=$scope.cam[i]["status"];
@@ -204,7 +204,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CamCtrl', function($scope, $state, $stateParams) {
-	$scope.list = [[{name:"cam1",state:"balanced",status:"Online"},{name:"cam2",state:"balanced",status:"Online"}],[{name:"cam3",state:"assertive",status:"Online"},{name:"cam4",state:"balanced",status:"Online"}]];
+	$scope.list = [[{name:"หน้าบ้าน",state:"balanced",status:"Online"},{name:"ห้องครัว",state:"balanced",status:"Online"}],[{name:"ห้องนั่งเล่น",state:"assertive",status:"Online"},{name:"โรงรถ",state:"balanced",status:"Online"}]];
 })
 
 .controller('GarageCtrl', function($scope, $state, $stateParams,$timeout) {
@@ -352,7 +352,7 @@ angular.module('starter.controllers', [])
 	$scope.humidVal=50;
 	$scope.tempVal=55;
 	$scope.recommentHumid="เปิดผ้าม่านเพื่อลดความชื้น";
-	$scope.recommentTemp="เปิดแอร์เพื่อให้ค่าไฟที่บ้านเปลืองเล่นๆมั้ยพ่อหนุ่ม";
+	$scope.recommentTemp="เปิดเครื่องปรับอากาศเพื่อลดอุณหภูมิภายในบ้าน";
 	$scope.humGauge = createRadGauge('hum', 0, 100, '%').setVal($scope.humidVal);
 	$scope.tempGauge = createVerGauge('temp', -20, 60, ' °C').setVal($scope.tempVal).setColor("red");
 })
