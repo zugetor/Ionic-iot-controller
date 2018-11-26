@@ -204,7 +204,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CamCtrl', function($scope, $state, $stateParams) {
-	$scope.list = [[{name:"หน้าบ้าน",state:"balanced",status:"Online"},{name:"ห้องครัว",state:"balanced",status:"Online"}],[{name:"ห้องนั่งเล่น",state:"assertive",status:"Online"},{name:"โรงรถ",state:"balanced",status:"Online"}]];
+	$scope.list = [[{name:"หน้าบ้าน",state:"balanced",status:"Online"},{name:"ห้องครัว",state:"balanced",status:"Online"}],[{name:"ห้องนั่งเล่น",state:"assertive",status:"Offline"},{name:"โรงรถ",state:"balanced",status:"Online"}]];
 })
 
 .controller('GarageCtrl', function($scope, $state, $stateParams,$timeout) {
