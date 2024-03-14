@@ -1,6 +1,6 @@
 # Ionic-iot-controller
 
-  * [DEMO](https://sunsunza2009.github.io/Ionic-iot-controller/)
+  * [DEMO](https://zugetor.github.io/Ionic-iot-controller/)
 
 ### คุณสมบัติ
 
